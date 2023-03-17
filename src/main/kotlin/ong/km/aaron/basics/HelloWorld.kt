@@ -6,8 +6,12 @@ import kotlinx.coroutines.runBlocking
 
 fun main() = runBlocking {
     launch {
-        delay(1000L)
-        println("World!")
+        doWorld()
     }
     println("Hello")
+}
+
+private suspend fun doWorld() {
+    delay(1000L)
+    println("World!")
 }
