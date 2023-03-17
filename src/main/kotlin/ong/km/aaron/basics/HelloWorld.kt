@@ -1,17 +1,18 @@
 package ong.km.aaron.basics
 
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 fun main() = runBlocking {
-    launch {
-        doWorld()
-    }
-    println("Hello")
+    doWorld()
 }
 
-private suspend fun doWorld() {
-    delay(1000L)
-    println("World!")
+suspend fun doWorld() = coroutineScope {
+    launch {
+        delay(1000L)
+        println("World!")
+    }
+    println("Hello")
 }
