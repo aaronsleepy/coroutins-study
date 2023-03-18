@@ -6,10 +6,15 @@ import kotlinx.coroutines.runBlocking
 
 fun main() = runBlocking {
     val job = launch {
-        delay(1000L)
-        println("World")
+        doJob()
     }
-    println("Hello")
+    println("Waiting")
     job.join()
     println("Done")
+}
+
+suspend fun doJob() {
+    println("Working...")
+    delay(3000L)
+    println("Worked!")
 }
